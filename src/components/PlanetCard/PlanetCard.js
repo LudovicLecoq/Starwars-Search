@@ -1,11 +1,12 @@
+import Modal from '../Modal/Modal';
 
-export default function PlanetCard({item}) {
+export default function PlanetCard({item, type, openModal, showModal, setShowModal}) {
     return (
-        <li className="planet-item">
-            <p>{item.name}</p>
-            <p>{item.rotation_period}</p>
-            <p>{item.diameter}</p>
-            <p>{item.gravity}</p>
-        </li>
+        <>
+            <li className="planet-item" onClick={openModal}>
+            alllooooo
+            </li>
+            <Modal modalIsOpen={showModal} setModalIsOpen={setShowModal} type={type} item={item} />
+        </>
     )
 }

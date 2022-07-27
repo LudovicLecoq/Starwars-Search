@@ -2,7 +2,7 @@
 import {useState, useEffect} from 'react';
 import './filterButton.css';
 
-export default function FilterButton({setSearch, search, getData}) {
+export default function FilterButton({setSearch, setCount, setCurrentData}) {
 
     const [buttonValue, setButtonValue] = useState({
         activeButton: null,
@@ -15,12 +15,9 @@ export default function FilterButton({setSearch, search, getData}) {
     const toggleActive = (index, value) => {
         setButtonValue({...buttonValue, activeButton: buttonValue.buttons[index]});
         setSearch(value);
+        setCount(0);
+        setCurrentData([]);
     };
-
-    useEffect(() => {
-        getData(true);
-    }, [search])
-    
 
     const toggleActiveStyle = (index) => {
         if (buttonValue.buttons[index] === buttonValue.activeButton){
