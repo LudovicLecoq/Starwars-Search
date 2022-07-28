@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import './filterButton.css';
 
 export default function FilterButton({setSearch, setCount, setCurrentData}) {
@@ -40,4 +41,10 @@ export default function FilterButton({setSearch, setCount, setCurrentData}) {
             ))}
         </div>
     )
+}
+
+FilterButton.propTypes = {
+    setSearch: PropTypes.func.isRequired,
+    setCount: PropTypes.func.isRequired,
+    setCurrentData: PropTypes.func.isRequired
 }

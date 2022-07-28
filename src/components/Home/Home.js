@@ -7,7 +7,6 @@ import FilterButton from '../FilterButton/FilterButton';
 import Search from '../Search/Search';
 import Results from '../Results/Results';
 import Loading from '../Loading/Loading';
-import Footer from '../Footer/Footer';
 
 function Home() {
 
@@ -22,22 +21,25 @@ function Home() {
 
     const getData = async (reset) => {
             setLoad(true);
+            setPage(1);
             reset && setLoadMore(currentSearch);
             reset && setCurrentSearch("");
-            const data = await loadData(searchType, currentSearch, page);
+            const data = await loadData(searchType, currentSearch, 1);
             if(data.status === 200){
                 setCurrentData(data.data.results);
                 setCount(data.data.count);
                 setCurrentType(searchType);
                 setLoad(false);
-                console.log("newrendu");
+                console.log("newrendu", data.data.results);
             }
     };
 
     const PrevAndNextData = async () => {
+        setLoad(true);
         const data = await loadData(searchType, loadMore, page);
         if(data.status === 200){
             setCurrentData(data.data.results);
+            setLoad(false);
         }
     }
 
@@ -66,10 +68,10 @@ function Home() {
                 : 
                     <Results data={currentData} count={count} type={currentType} />
                 }
-                {page * 10 < count && <button onClick={nextResults}>next</button> }
-                {page > 1 &&  <button onClick={previousResults}>prev</button> }
+                {page > 1 &&  <button className='home-page-btn prev' onClick={previousResults}>prev</button> }
+                {page * 10 < count && <button className='home-page-btn next' onClick={nextResults}>next</button> }   
+
             </main>
-            <Footer />
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import PlanetDetails from '../PlanetDetails/PlanetDetails';
 import CharacterDetails from '../CharacterDetails/CharacterDetails';
@@ -22,4 +23,11 @@ export default function CharacterModal({modalIsOpen, closeModal, type, item}) {
         
         </Modal>
     )
+}
+
+CharacterModal.propTypes = {
+    modalIsOpen: PropTypes.bool.isRequired,
+    closeModal: PropTypes.func.isRequired,
+    type: PropTypes.string.isRequired,
+    item: PropTypes.object.isRequired
 }

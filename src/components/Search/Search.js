@@ -1,7 +1,7 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import './search.css';
 
-export default function Search({getData, currentSearch, setCurrentSearch, error}) {
+export default function Search({getData, currentSearch, setCurrentSearch}) {
     
     const submitSearch = (e) => {
         e.preventDefault();
@@ -17,10 +17,16 @@ export default function Search({getData, currentSearch, setCurrentSearch, error}
         <div className="search-container">
             <form onSubmit={submitSearch}>
                 <label htmlFor="search">
-                    <input id="search" type="text" placeholder="&#128269; Search..." value={currentSearch} onChange={changeCurrentSearch} required />
+                    <input id="search" type="text" placeholder="Search..." value={currentSearch} onChange={changeCurrentSearch} required />
                 </label>
             </form>
-            {error && "Attention votre recherche doit faire au miminum 1 caractère"}
         </div>
     )
+}
+
+
+Search.propTypes = {
+    getData: PropTypes.func.isRequired,
+    currentSearch: PropTypes.string.isRequired,
+    setCurrentSearch: PropTypes.func.isRequired,
 }
