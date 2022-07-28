@@ -2,6 +2,7 @@
 .Modal{
     position: fixed;
     z-index: 2;
+    height: 500px;
     top: 25%;
     left: 25%; 
     right: 25%; 
@@ -27,18 +28,28 @@
     background: transparent;
     border: none;
     padding: 5px;
+    cursor: pointer;
 }
 
 .modal-btn-close {
     width: 15px;
 }
+@media (min-width: 1985px) { 
+    .Modal {
+        top: 12%;
+        left: 15%; 
+        right: 15%; 
+        bottom: 12%; 
+    }
+}
+
 
 @media (max-width: 1300px) { 
     .Modal {
         top: 20%;
         left: 15%; 
         right: 15%; 
-        bottom: 20%; 
+        bottom: 20%;
     }
 }
 

@@ -20,6 +20,7 @@ function Home() {
     const [loadMore, setLoadMore] = useState("");
     const [page, setPage] = useState(1);
     const [load, setLoad] = useState(false);
+    const [error, setError] = useState(false);
 
     const getData = async (reset) => {
             setLoad(true);
@@ -32,6 +33,10 @@ function Home() {
                 setCount(data.data.count);
                 setCurrentType(searchType);
                 setLoad(false);
+                setError(false);
+            } else if (!data) {
+                setError(true);
+                setLoad(false);
             }
     };
 
@@ -40,6 +45,10 @@ function Home() {
         const data = await loadData(searchType, loadMore, page);
         if(data.status === 200){
             setCurrentData(data.data.results);
+            setLoad(false);
+            setError(false);
+        } else if (!data) {
+            setError(true);
             setLoad(false);
         }
     }
@@ -63,12 +72,13 @@ function Home() {
         <div className="home">
             <Header />
             <main className='home-content'>
-                <FilterButton setSearch={setSearchType} setCount={setCount} setCurrentData={setCurrentData} setPage={setPage} setLoadMore={setLoadMore} />
+                <FilterButton setSearch={setSearchType} setCount={setCount} setCurrentData={setCurrentData} setPage={setPage} setLoadMore={setLoadMore} setError={setError} />
                 <Search getData={getData} setCurrentSearch={setCurrentSearch} currentSearch={currentSearch} />
                 {load? <Loading />
                 : 
                     <Results data={currentData} count={count} type={currentType} />
                 }
+                {error &&   <p className='homt-error'>An error has occurred</p> }
                 {page > 1 &&  <button className='home-page-btn prev' onClick={previousResults}><img className='home-page-arrow' src={ArrowLeft} alt="arrow left" />prev</button> }
                 {page * 10 < count && <button className='home-page-btn next' onClick={nextResults}>next <img className='home-page-arrow' src={ArrowRight} alt="arrow right" /></button> }   
 
