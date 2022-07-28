@@ -7,6 +7,8 @@ import FilterButton from '../FilterButton/FilterButton';
 import Search from '../Search/Search';
 import Results from '../Results/Results';
 import Loading from '../Loading/Loading';
+import ArrowRight from '../../assets/arrowRightBlack.png';
+import ArrowLeft from '../../assets/arrowLeftBlack.png'
 
 function Home() {
 
@@ -30,7 +32,6 @@ function Home() {
                 setCount(data.data.count);
                 setCurrentType(searchType);
                 setLoad(false);
-                console.log("newrendu", data.data.results);
             }
     };
 
@@ -62,14 +63,14 @@ function Home() {
         <div className="home">
             <Header />
             <main className='home-content'>
-                <FilterButton setSearch={setSearchType} setCount={setCount} setCurrentData={setCurrentData} />
+                <FilterButton setSearch={setSearchType} setCount={setCount} setCurrentData={setCurrentData} setPage={setPage} setLoadMore={setLoadMore} />
                 <Search getData={getData} setCurrentSearch={setCurrentSearch} currentSearch={currentSearch} />
                 {load? <Loading />
                 : 
                     <Results data={currentData} count={count} type={currentType} />
                 }
-                {page > 1 &&  <button className='home-page-btn prev' onClick={previousResults}>prev</button> }
-                {page * 10 < count && <button className='home-page-btn next' onClick={nextResults}>next</button> }   
+                {page > 1 &&  <button className='home-page-btn prev' onClick={previousResults}><img className='home-page-arrow' src={ArrowLeft} alt="arrow left" />prev</button> }
+                {page * 10 < count && <button className='home-page-btn next' onClick={nextResults}>next <img className='home-page-arrow' src={ArrowRight} alt="arrow right" /></button> }   
 
             </main>
         </div>

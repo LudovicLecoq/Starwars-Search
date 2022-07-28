@@ -8,8 +8,8 @@ export default function CharacterDetails({item}) {
             <h3 className='details-title'>{item.name}</h3>
             <div className="details-content">
                 <p className="details-item">Gender : {item.gender}</p>
-                <p className="details-item">Height : {item.height}</p>
-                <p className="details-item">Mass : {item.mass}</p>
+                <p className="details-item">Height : {item.height} cm</p>
+                <p className="details-item">Mass : {item.mass} kg</p>
                 <p className="details-item">Eyes color : {item.eye_color}</p>
                 <p className="details-item">Skin Color : {item.skin_color}</p>
                 <p className="details-item">Birth year : {item.birth_year}</p>

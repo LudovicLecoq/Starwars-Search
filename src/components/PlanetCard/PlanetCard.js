@@ -8,6 +8,7 @@ export default function PlanetCard({item, type}) {
 
     const openModal = () => {
         setShowModal(true);
+        console.log(item);
     }
 
     const closeModal = () => {

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import PlanetDetails from '../PlanetDetails/PlanetDetails';
 import CharacterDetails from '../CharacterDetails/CharacterDetails';
+import Cross from '../../assets/cross.png'
 
 import './modal.css';
 
 export default function CharacterModal({modalIsOpen, closeModal, type, item}) {
         Modal.setAppElement(document.getElementById('root'));
-
 
     return (
         <Modal
@@ -17,10 +17,8 @@ export default function CharacterModal({modalIsOpen, closeModal, type, item}) {
             overlayClassName='Overlay'
             onRequestClose={closeModal}
         >
-        <button className="close" onClick={closeModal}>close</button>
-        
-        {type === "planets" ? <PlanetDetails item={item} /> : <CharacterDetails item={item} /> }
-        
+            <button className="close" onClick={closeModal}><img className="modal-btn-close" src={Cross} alt="close button" /></button>
+            {type === "planets" ? <PlanetDetails item={item} /> : <CharacterDetails item={item} /> } 
         </Modal>
     )
 }

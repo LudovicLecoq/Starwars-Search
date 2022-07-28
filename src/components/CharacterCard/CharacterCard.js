@@ -8,7 +8,6 @@ export default function CharacterCard({item, type}) {
 
     const openModal = () => {
         setShowModal(true);
-        console.log("opemModal", item)
     }
 
     const closeModal = () => {

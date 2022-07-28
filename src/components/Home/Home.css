@@ -31,13 +31,17 @@
 }
 
 .prev {
-    left: 100px;
+    left: 20px;
 }
 
 .next {
-    right: 115px;
+    right: 20px;
 }
 
+.home-page-arrow{
+    width: 5px;
+    margin: 0 10px;
+}
 @media (max-width: 1300px) { 
 
     .home {

@@ -7,11 +7,11 @@ export default function PlanetDetails({item}) {
     <div className="details-content">
         <p className="details-item">Population : {item.population}</p>
         <p className="details-item">Terrain : {item.terrain}</p>
-        <p className="details-item">Water surface :{item.water_surface}</p>
+        <p className="details-item">Surface water : {item.surface_water}%</p>
         <p className="details-item">Gravity : {item.gravity}</p>
         <p className="details-item">Diamater : {item.diameter}</p>
-        <p className="details-item">Rotation period : {item.rotation_period}</p>
-        <p className="details-item">Orbital period : {item.orbital_period}</p>
+        <p className="details-item">Rotation period : {item.rotation_period}H</p>
+        <p className="details-item">Orbital period : {item.orbital_period} days</p>
 
     </div>
 </div>

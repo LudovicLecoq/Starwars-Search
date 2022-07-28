@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './filterButton.css';
 
-export default function FilterButton({setSearch, setCount, setCurrentData}) {
+export default function FilterButton({setSearch, setCount, setCurrentData, setPage, setLoadMore}) {
 
     const [buttonValue, setButtonValue] = useState({
         activeButton: null,
@@ -18,6 +18,8 @@ export default function FilterButton({setSearch, setCount, setCurrentData}) {
         setSearch(value);
         setCount(0);
         setCurrentData([]);
+        setLoadMore("");
+        setPage(1);
     };
 
     const toggleActiveStyle = (index) => {
@@ -46,5 +48,7 @@ export default function FilterButton({setSearch, setCount, setCurrentData}) {
 FilterButton.propTypes = {
     setSearch: PropTypes.func.isRequired,
     setCount: PropTypes.func.isRequired,
-    setCurrentData: PropTypes.func.isRequired
+    setCurrentData: PropTypes.func.isRequired,
+    setPage: PropTypes.func.isRequired,
+    setLoadMore: PropTypes.func.isRequired,
 }
