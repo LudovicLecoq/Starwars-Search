@@ -1,4 +1,5 @@
 import React from 'react';
+import './search.css';
 
 export default function Search({getData, currentSearch, setCurrentSearch, error}) {
     
@@ -16,7 +17,7 @@ export default function Search({getData, currentSearch, setCurrentSearch, error}
         <div className="search-container">
             <form onSubmit={submitSearch}>
                 <label htmlFor="search">
-                    <input id="search" type="text" placeholder="&#128269; Search..." value={currentSearch} onChange={changeCurrentSearch} minLength="1" />
+                    <input id="search" type="text" placeholder="&#128269; Search..." value={currentSearch} onChange={changeCurrentSearch} required />
                 </label>
             </form>
             {error && "Attention votre recherche doit faire au miminum 1 caractère"}

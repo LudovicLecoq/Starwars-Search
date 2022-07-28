@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("./assets/fond_swa.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f1f1f1;
+  width: 100vw;
+  height: 100vh;
 }
 
 code {

@@ -8,7 +8,7 @@
     bottom: 40px; 
     padding: 2rem;
     border-radius: 5px;
-    background-color: blue ;
+    background-color: #ffffff;
 }
 
 .Overlay {
@@ -17,6 +17,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(122, 122, 122, 0.781);
+    background-color: rgba(122, 122, 122, 0.7);
     z-index: 1;
 }

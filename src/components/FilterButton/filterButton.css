@@ -1,7 +1,29 @@
+.filter-button-container{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height:70px;
+}
+
 .button {
-    color: red;
+    background: transparent;
+    border: none;
+    color: black;
+    width: 50%;
+    padding: 18px;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.5);
+    font-size: 20px;
+}
+
+.button:first-child{
+    border-right: 1px solid rgba(5, 5, 5, 0.5) ;
+    border-radius: 20px 0 0 0;   
+}
+.button:last-child{
+    border-radius: 0 20px 0 0;   
 }
 
 .button.active{
-    color: greenyellow;
+    color: #f1f1f1;
+    background: rgb(255, 136, 24);
 }

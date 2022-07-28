@@ -1,17 +1,24 @@
-import Modal from '../Modal/Modal'
+import {useState} from 'react';
+import Modal from '../Modal/Modal';
+import './characterCard.css';
 
-export default function CharacterCard({item, type, openModal, showModal, setShowModal}) {
+export default function CharacterCard({item, type}) {
+    const [showModal, setShowModal] = useState(false);
 
+    const openModal = () => {
+        setShowModal(true);
+        console.log("opemModal")
+    }
+
+    const closeModal = () => {
+        setShowModal(false);
+    }
     return (
         <>
             <li className="character-item" onClick={openModal}>
                 <p>{item.name}</p>
-                <p>{item.height}</p>
-                <p>{item.mass}</p>
-                <p>{item.hair_color}</p>
-                <p>{item.film}</p>
             </li>
-            <Modal modalIsOpen={showModal} setModalIsOpen={setShowModal} type={type} item={item} />
+            <Modal modalIsOpen={showModal}  closeModal={closeModal} type={type} item={item} />
         </>
     )
 }

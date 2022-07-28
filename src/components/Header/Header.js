@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import logo from '../../assets/logo_sw.png';
+import './header.css'
 
 export default function Header() {
   return (
     <div className="header-container">
-        <h1>Star wars</h1>
+        <img className='header-logo' src={logo} alt="star wars logo" />
     </div>
   )
 }

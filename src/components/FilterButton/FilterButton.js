@@ -8,7 +8,7 @@ export default function FilterButton({setSearch, setCount, setCurrentData}) {
         activeButton: null,
         buttons: [
             {id:1, value:"planets", txt:"planets"}, 
-            {id:2, value:"people", txt:"character"}
+            {id:2, value:"people", txt:"characters"}
         ]
     });
 
